@@ -21,9 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/anaheim"
         android:text="Joker"
         android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintEnd_toStartOf="@+id/wishlistButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,17 +35,22 @@
         android:id="@+id/wishlistButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/yellow"
+        android:fontFamily="@font/anaheim"
         android:text="Add to wishlist"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/genrePicTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingTextView" />
 
     <TextView
         android:id="@+id/yearTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/anaheim"
         android:text="Year"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,19 +62,22 @@
         android:id="@+id/countryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/anaheim"
         android:text="Country: "
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yearTextView" />
 
     <TextView
-        android:id="@+id/genrePicTextView"
+        android:id="@+id/ratingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Genre"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/anaheim"
+        android:text="Rating"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.922"
@@ -78,24 +88,25 @@
         android:id="@+id/runtimeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/anaheim"
         android:text="Runtime"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/yearTextView"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
     <TextView
         android:id="@+id/genreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/anaheim"
         android:text="Genre"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.775"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toEndOf="@+id/runtimeTextView"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
@@ -104,29 +115,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/anaheim"
         android:text="Language"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countryTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/countryTextView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/releaseDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="World premiere: ReleaseDate"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/anaheim"
+        android:text="World premiere: "
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/languageTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/languageTextView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/plotTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/anaheim"
         android:text="Plot"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -134,5 +152,5 @@
         app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/releaseDateTextView"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintVertical_bias="0.069" />
 </androidx.constraintlayout.widget.ConstraintLayout>

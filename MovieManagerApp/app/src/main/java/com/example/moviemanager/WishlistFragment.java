@@ -15,10 +15,10 @@ import java.util.Date;
 
 public class WishlistFragment extends Fragment {
 
+    private final ArrayList<Movie> wishlist = new ArrayList<>();
     // Declare objects
     private View view;
     private ListView listView = null;
-    private final ArrayList<Movie> wishlist = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,13 +33,14 @@ public class WishlistFragment extends Fragment {
         wishlist.add(new Movie(2, "Titanic", new Date(1994, 07, 02), "United States", "English", "Drama", 9.3, "", "https://i.ytimg.com/vi/19THOH_dvxg/movieposter_en.jpg", "123min"));
 
         CustomAdapter myAdapter = new CustomAdapter(getActivity(), R.layout.wishlist_view_items, wishlist);
-        listView = (ListView) view.findViewById(R.id.wishlistView);
+        listView = view.findViewById(R.id.wishlistView);
         listView.setAdapter(myAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), MovieManagerActivity.class);
+                intent.putExtra("selectedMovie", wishlist.get(position));
                 startActivity(intent);
             }
         });
