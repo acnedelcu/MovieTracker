@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,16 +45,18 @@ public class MovieManagerActivity extends AppCompatActivity {
 
         // Set textViews fields
         nameTextView.setText(movie.getName());
-//      yearTextView.setText(calendar.get(Calendar.YEAR));
+        // TODO: Update year and date and picture
+        //yearTextView.setText(calendar.get(Calendar.YEAR));
         countryTextView.setText(countryTextView.getText() + movie.getCountry());
         genreTextView.setText(movie.getGenre());
         ratingTextView.setText(movie.getRating().toString());
         runtimeTextView.setText(movie.getRuntime());
-        languageTextView.setText(movie.getLanguage());
-        releaseTextView.setText(countryTextView.getText() + Integer.toString(calendar.get(Calendar.DATE)));
-        plotTextView.setText(movie.getPlot());
-
-//      Picasso.get().load()
-
+        languageTextView.setText(languageTextView.getText() + movie.getLanguage());
+        releaseTextView.setText(releaseTextView.getText() + Integer.toString(calendar.get(Calendar.DATE)));
+        if (!movie.getPlot().isEmpty()) {
+            plotTextView.setText(plotTextView.getText() + movie.getPlot());
+        } else {
+            plotTextView.setText(plotTextView.getText() + "-");
+        }
     }
 }
