@@ -141,6 +141,26 @@ namespace MovieTrackerAPI.Data.Repositories
             dbContext.SaveChanges();
         }
 
+        public List<Movie> SearchMovies(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                throw new ArgumentNullException(nameof(searchTerm));
+            }
+
+            string normalizedSearchTerm = searchTerm.ToLower();
+
+            List<Movie> searchResults = dbContext.Movies.Where(m => m.Name.Contains(normalizedSearchTerm)
+            || m.Country.Contains(normalizedSearchTerm)
+            || m.Language.Contains(normalizedSearchTerm)
+            || m.Genre.Contains(normalizedSearchTerm)
+            || m.Rating.ToString().Contains(normalizedSearchTerm)
+            || m.Plot.Contains(normalizedSearchTerm)
+            || m.Runtime.Contains(normalizedSearchTerm)
+            ).ToList();
+            return searchResults;
+        }
+
         public List<Cinema> GetAllCinemasWhereMovieIsRunning(int movieId)
         {
             if (movieId < 0)

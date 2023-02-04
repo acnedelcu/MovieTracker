@@ -147,6 +147,19 @@ namespace MovieTrackerAPI.Controllers
         }
 
         /// <summary>
+        ///     Searches the given term on the properties of the movie
+        /// </summary>
+        [HttpGet]
+        public IActionResult SearchMovies(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                return BadRequest("The provided search term was invalid!");
+            }
+            return Ok(movieRepository.SearchMovies(searchTerm));
+        }
+
+        /// <summary>
         ///     Returns a list of cinemas where the given movie is running
         /// </summary>
         [HttpGet]

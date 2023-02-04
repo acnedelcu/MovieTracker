@@ -45,6 +45,11 @@ namespace MovieTrackerAPI.Data.Repositories.Interfaces
         void RemoveMovieFromUsersWatchListByIds(int movieId, int userId);
 
         /// <summary>
+        ///     Searches the given term on the properties of the movie
+        /// </summary>
+        List<Movie> SearchMovies(string searchTerm);
+
+        /// <summary>
         ///     Returns a list of cinemas where the given movie is running
         /// </summary>
         List<Cinema> GetAllCinemasWhereMovieIsRunning(int movieId);
