@@ -114,6 +114,42 @@ public class MoviesDataService {
         RequestsSingleton.getInstance(context).addToRequestQueue(request);
     }
 
+    public void searchMovies(String searchTerm, final MovieListResponseListener movieListResponseListener) {
+        String url = API_DOMAIN_MOVIES + "SearchMovies?searchTerm=" + searchTerm; //TODO - encode special chars
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                List<Movie> movies = new ArrayList<Movie>();
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonMovie = response.getJSONObject(i);
+                        movies.add(new Movie(jsonMovie.getInt("id")
+                                , jsonMovie.getString("name")
+                                , new Date()
+                                , jsonMovie.getString("country")
+                                , jsonMovie.getString("language")
+                                , jsonMovie.getString("genre")
+                                , Double.parseDouble(jsonMovie.getString("rating"))
+                                , jsonMovie.getString("plot")
+                                , jsonMovie.getString("poster")
+                                , jsonMovie.getString("runtime"))
+                        );
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                movieListResponseListener.onResponse(movies);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                movieListResponseListener.onError("Something went wrong!");
+            }
+        });
+        RequestsSingleton.getInstance(context).addToRequestQueue(request);
+    }
+
 
     public interface MovieResponseListener {
         void onError(String message);
