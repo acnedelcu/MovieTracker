@@ -1,6 +1,7 @@
 package com.example.moviemanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,14 +69,9 @@ public class HomeFragment extends Fragment {
                 cardView1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // TODO change all this text with open the movie details activity
-                        Fragment movieFragment = new MoviesFragment();
-                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frame_layout, movieFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
-                        MainActivity mainActivity = (MainActivity) getActivity();
-                        mainActivity.bottomNavigationView.setSelectedItemId(R.id.movies);
+                        Intent intent = new Intent(getContext(), MovieManagerActivity.class);
+                        intent.putExtra("selectedMovie", movies.get(0));
+                        startActivity(intent);
                     }
                 });
 
@@ -89,14 +85,9 @@ public class HomeFragment extends Fragment {
                 cardView2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // TODO change all this text with open the movie details activity
-                        Fragment movieFragment = new MoviesFragment();
-                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frame_layout, movieFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
-                        MainActivity mainActivity = (MainActivity) getActivity();
-                        mainActivity.bottomNavigationView.setSelectedItemId(R.id.movies);
+                        Intent intent = new Intent(getContext(), MovieManagerActivity.class);
+                        intent.putExtra("selectedMovie", movies.get(1));
+                        startActivity(intent);
                     }
                 });
 
@@ -110,14 +101,9 @@ public class HomeFragment extends Fragment {
                 cardView3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // TODO change all this text with open the movie details activity
-                        Fragment movieFragment = new MoviesFragment();
-                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                        transaction.replace(R.id.frame_layout, movieFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
-                        MainActivity mainActivity = (MainActivity) getActivity();
-                        mainActivity.bottomNavigationView.setSelectedItemId(R.id.movies);
+                        Intent intent = new Intent(getContext(), MovieManagerActivity.class);
+                        intent.putExtra("selectedMovie", movies.get(2));
+                        startActivity(intent);
                     }
                 });
 
