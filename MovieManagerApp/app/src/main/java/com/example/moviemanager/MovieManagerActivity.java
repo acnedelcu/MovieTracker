@@ -1,12 +1,15 @@
 package com.example.moviemanager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Response;
 import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
@@ -24,6 +27,7 @@ public class MovieManagerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_manager);
+        MoviesDataService moviesDataService = new MoviesDataService(getApplicationContext());
 
         posterImageView = findViewById(R.id.posterImageView);
         addToWatchedListBtn = findViewById(R.id.watchedListButton);
@@ -61,5 +65,17 @@ public class MovieManagerActivity extends AppCompatActivity {
             plotTextView.setText(plotTextView.getText() + "-");
         }
         Picasso.get().load(movie.getPoster()).into(posterImageView);
+
+        addToWatchedListBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moviesDataService.addMovieToUserWatchList(3, 1, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(MovieManagerActivity.this, movie.getName() + " was marked as watched!", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
     }
 }
