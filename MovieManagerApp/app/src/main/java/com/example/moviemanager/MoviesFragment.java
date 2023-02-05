@@ -35,6 +35,14 @@ public class MoviesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Context context = getActivity();
+
+        if (view == null) {
+            view = inflater.inflate(R.layout.fragment_movies, container, false);
+        } else {
+            ViewGroup parent = (ViewGroup) view.getParent();
+            parent.removeView(view);
+        }
+
         MoviesDataService moviesDataService = new MoviesDataService(context);
         moviesDataService.getAllMovies(new MoviesDataService.MovieListResponseListener() {
             @Override
@@ -63,9 +71,6 @@ public class MoviesFragment extends Fragment {
                 });
             }
         });
-
-        view = inflater.inflate(R.layout.fragment_movies, container, false);
-
         return view;
     }
 }

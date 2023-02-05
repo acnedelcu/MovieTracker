@@ -31,9 +31,19 @@ public class CinemasFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_cinemas, container, false);
-        TextView textView = view.findViewById(R.id.cinemaTextView);
         Context context = getActivity();
+
+        if (view == null) {
+            view = inflater.inflate(R.layout.fragment_cinemas, container, false);
+        } else {
+            ViewGroup parent = (ViewGroup) view.getParent();
+            parent.removeView(view);
+        }
+        TextView textView = view.findViewById(R.id.cinemaTextView);
+        WebView webView = view.findViewById(R.id.webView);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://www.cinemaone.ro/home#/");
+
         CinemaDataService cinemaDataService = new CinemaDataService(context);
         cinemaDataService.getAllCinemas(new CinemaDataService.CinemaListResponseListener() {
             @Override
@@ -47,11 +57,6 @@ public class CinemasFragment extends Fragment {
                 textView.setText(cinemas.get(0).getName());
             }
         });
-
-        WebView webView = view.findViewById(R.id.webView);
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://www.cinemaone.ro/home#/");
-
         return view;
     }
 }
