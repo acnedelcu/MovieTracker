@@ -23,14 +23,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()) {
@@ -39,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.wishlist:
                     replaceFragment(new WishlistFragment());
+                    break;
+                case R.id.movies:
+                    replaceFragment(new MoviesFragment());
                     break;
                 case R.id.cinemas:
                     replaceFragment(new CinemasFragment());
@@ -86,9 +87,7 @@ public class MainActivity extends AppCompatActivity {
 //                        }
 //                    });
                     break;
-                case R.id.movies:
-                    replaceFragment(new MoviesFragment());
-                    break;
+
             }
             return true;
         });

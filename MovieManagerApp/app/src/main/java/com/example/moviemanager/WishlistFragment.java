@@ -1,5 +1,6 @@
 package com.example.moviemanager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class WishlistFragment extends Fragment {
     // Declare objects
@@ -21,6 +24,7 @@ public class WishlistFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Context context = getActivity();
 
         if (view == null) {
             view = inflater.inflate(R.layout.fragment_wishlist, container, false);
@@ -28,6 +32,20 @@ public class WishlistFragment extends Fragment {
             ViewGroup parent = (ViewGroup) view.getParent();
             parent.removeView(view);
         }
+        MoviesDataService moviesDataService = new MoviesDataService(context);
+        moviesDataService.getAllMovies(new MoviesDataService.MovieListResponseListener() {
+            @Override
+            public void onError(String message) {
+                Toast.makeText(context, "Main thread error!", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onResponse(List<Movie> movies) {
+                Toast.makeText(context, "Fetched the movie " + movies.get(0).getName(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
         wishlist.add(new Movie(1, "The Shawshank Redemption", new Date(1994, 07, 02), "United States", "English", "Drama", 9.3, "", "https://i.ytimg.com/vi/19THOH_dvxg/movieposter_en.jpg", "123min"));
         wishlist.add(new Movie(2, "Titanic", new Date(1994, 07, 02), "United States", "English", "Drama", 9.3, "", "https://i.ytimg.com/vi/19THOH_dvxg/movieposter_en.jpg", "123min"));
 
