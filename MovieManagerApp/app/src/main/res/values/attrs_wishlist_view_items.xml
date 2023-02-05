@@ -1,5 +1,5 @@
 <resources>
-    <declare-styleable name="wishlist_view_items">
+    <declare-styleable name="watchedlist_view_items">
         <attr name="exampleString" format="string" />
         <attr name="exampleDimension" format="dimension" />
         <attr name="exampleColor" format="color" />

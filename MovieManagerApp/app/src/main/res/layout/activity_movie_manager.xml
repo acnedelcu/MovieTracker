@@ -26,19 +26,19 @@
         android:text="Joker"
         android:textColor="@color/white"
         android:textSize="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/wishlistButton"
+        app:layout_constraintEnd_toStartOf="@+id/watchedListButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/posterImageView" />
 
     <Button
-        android:id="@+id/wishlistButton"
+        android:id="@+id/watchedListButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/yellow"
         android:fontFamily="@font/anaheim"
-        android:text="Add to wishlist"
+        android:text="Add to watched"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.939"

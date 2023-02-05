@@ -1,18 +1,14 @@
 package com.example.moviemanager;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.android.volley.Response;
 import com.example.moviemanager.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.home:
                     replaceFragment(new HomeFragment());
                     break;
-                case R.id.wishlist:
-                    replaceFragment(new WishlistFragment());
+                case R.id.watchedlist:
+                    replaceFragment(new WatchedListFragment());
                     break;
                 case R.id.movies:
                     replaceFragment(new MoviesFragment());

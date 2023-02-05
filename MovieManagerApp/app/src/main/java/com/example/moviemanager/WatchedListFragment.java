@@ -15,9 +15,9 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WishlistFragment extends Fragment {
+public class WatchedListFragment extends Fragment {
     // Declare objects
-    private ArrayList<Movie> watchedlist = new ArrayList<>();
+    private ArrayList<Movie> watchedList = new ArrayList<>();
     private View view;
     private ListView listView = null;
 
@@ -26,7 +26,7 @@ public class WishlistFragment extends Fragment {
         Context context = getActivity();
 
         if (view == null) {
-            view = inflater.inflate(R.layout.fragment_wishlist, container, false);
+            view = inflater.inflate(R.layout.fragment_watchedlist, container, false);
         } else {
             ViewGroup parent = (ViewGroup) view.getParent();
             parent.removeView(view);
@@ -40,17 +40,17 @@ public class WishlistFragment extends Fragment {
 
             @Override
             public void onResponse(List<Movie> allWatchedMovies) {
-                watchedlist = new ArrayList<>(allWatchedMovies);
+                watchedList = new ArrayList<>(allWatchedMovies);
 
-                CustomAdapter myAdapter = new CustomAdapter(getActivity(), R.layout.wishlist_view_items, watchedlist);
-                listView = view.findViewById(R.id.wishlistView);
+                CustomAdapter myAdapter = new CustomAdapter(getActivity(), R.layout.watched_view_items, watchedList);
+                listView = view.findViewById(R.id.watchedListView);
                 listView.setAdapter(myAdapter);
 
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(getContext(), MovieManagerActivity.class);
-                        intent.putExtra("selectedMovie", watchedlist.get(position));
+                        intent.putExtra("selectedMovie", watchedList.get(position));
                         startActivity(intent);
                     }
                 });

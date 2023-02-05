@@ -14,7 +14,7 @@ public class MovieManagerActivity extends AppCompatActivity {
 
     // Variables
     ImageView posterImageView;
-    Button addToWishlistBtn;
+    Button addToWatchedListBtn;
     TextView nameTextView, yearTextView, countryTextView, genreTextView, ratingTextView, runtimeTextView, languageTextView, releaseTextView, plotTextView;
     Movie movie;
 
@@ -24,7 +24,7 @@ public class MovieManagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movie_manager);
 
         posterImageView = findViewById(R.id.posterImageView);
-        addToWishlistBtn = findViewById(R.id.wishlistButton);
+        addToWatchedListBtn = findViewById(R.id.watchedListButton);
         nameTextView = findViewById(R.id.nameTextView);
         yearTextView = findViewById(R.id.yearTextView);
         countryTextView = findViewById(R.id.countryTextView);

@@ -25,7 +25,7 @@ public class CustomAdapter extends ArrayAdapter<Movie> {
 
         View view = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater.inflate(R.layout.wishlist_view_items, null);
+        view = inflater.inflate(R.layout.watched_view_items, null);
 
         TextView textView = view.findViewById(R.id.textView);
         ImageView imageView = view.findViewById(R.id.imageView);
