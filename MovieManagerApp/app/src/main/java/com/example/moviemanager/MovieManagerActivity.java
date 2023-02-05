@@ -12,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Response;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class MovieManagerActivity extends AppCompatActivity {
 
@@ -22,6 +24,7 @@ public class MovieManagerActivity extends AppCompatActivity {
     Button addToWatchedListBtn;
     TextView nameTextView, yearTextView, countryTextView, genreTextView, ratingTextView, runtimeTextView, languageTextView, releaseTextView, plotTextView;
     Movie movie;
+    ArrayList<Movie> watchedMovies = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +69,40 @@ public class MovieManagerActivity extends AppCompatActivity {
         }
         Picasso.get().load(movie.getPoster()).into(posterImageView);
 
-        addToWatchedListBtn.setOnClickListener(new View.OnClickListener() {
+        moviesDataService.getAllWatchedMoviesOfUser(1, new MoviesDataService.MovieListResponseListener() {
             @Override
-            public void onClick(View v) {
-                moviesDataService.addMovieToUserWatchList(3, 1, new Response.Listener<String>() {
+            public void onError(String message) {
+                Toast.makeText(MovieManagerActivity.this, "Main thread error!", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onResponse(List<Movie> movies) {
+                watchedMovies = new ArrayList<>(movies);
+                if (watchedMovies.contains(movie)) {
+                    addToWatchedListBtn.setText("Remove from watched");
+                } else {
+                    addToWatchedListBtn.setText("Add to watched");
+                }
+
+                addToWatchedListBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(MovieManagerActivity.this, movie.getName() + " was marked as watched!", Toast.LENGTH_LONG).show();
+                    public void onClick(View v) {
+                        // Search if the movie is watched
+                        if (watchedMovies.contains(movie)) {
+                            moviesDataService.removeMovieFromUserWatchlist(movie.getId(), 1, new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    addToWatchedListBtn.setText("Add to watched");
+                                }
+                            });
+                        } else {
+                            moviesDataService.addMovieToUserWatchList(3, 1, new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    addToWatchedListBtn.setText("Remove from watched");
+                                }
+                            });
+                        }
                     }
                 });
             }
