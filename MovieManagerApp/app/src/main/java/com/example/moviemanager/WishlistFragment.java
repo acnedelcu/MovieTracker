@@ -14,9 +14,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class WishlistFragment extends Fragment {
-
-    private final ArrayList<Movie> wishlist = new ArrayList<>();
     // Declare objects
+    private final ArrayList<Movie> wishlist = new ArrayList<>();
     private View view;
     private ListView listView = null;
 

@@ -20,8 +20,8 @@ import java.util.Date;
 
 public class HomeFragment extends Fragment {
     // Declare objects
-    private View view;
     private final ArrayList<Movie> movies = new ArrayList<>();
+    private View view;
 
     public HomeFragment() {
         // Required empty public constructor
