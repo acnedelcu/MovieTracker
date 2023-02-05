@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.wishlist:
                     replaceFragment(new WishlistFragment());
                     break;
-                case R.id.shows:
-                    replaceFragment(new ShowsFragment());
+                case R.id.cinemas:
+                    replaceFragment(new CinemasFragment());
                     MoviesDataService moviesDataService = new MoviesDataService(MainActivity.this);
 
                     //example code for GetMovieById

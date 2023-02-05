@@ -11,11 +11,12 @@
         android:icon="@drawable/ic_baseline_star_border_24"
         android:title="Wishlist" />
     <item
-        android:id="@+id/shows"
-        android:icon="@drawable/ic_baseline_live_tv_24"
-        android:title="Shows" />
-    <item
         android:id="@+id/movies"
         android:icon="@drawable/ic_baseline_movie_24"
         android:title="Movies" />
+    <item
+        android:id="@+id/cinemas"
+        android:icon="@drawable/ic_baseline_emergency_recording_24"
+        android:title="Cinemas" />
+
 </menu>
