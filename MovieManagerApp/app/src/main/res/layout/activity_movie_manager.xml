@@ -13,12 +13,11 @@
         android:layout_height="406dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginTop="8dp"
@@ -47,9 +46,11 @@
 
     <TextView
         android:id="@+id/yearTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="25dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/anaheim"
         android:text="Year"
         android:textColor="@color/white"
@@ -60,25 +61,28 @@
 
     <TextView
         android:id="@+id/countryTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/anaheim"
         android:text="Country: "
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yearTextView" />
 
     <TextView
         android:id="@+id/ratingTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/anaheim"
         android:text="Rating"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.922"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,9 +90,11 @@
 
     <TextView
         android:id="@+id/runtimeTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/anaheim"
         android:text="Runtime"
         android:textColor="@color/white"
@@ -99,9 +105,10 @@
 
     <TextView
         android:id="@+id/genreTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/anaheim"
         android:text="Genre"
         android:textColor="@color/white"
@@ -112,9 +119,11 @@
 
     <TextView
         android:id="@+id/languageTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/anaheim"
         android:text="Language: "
         android:textColor="@color/white"
@@ -127,9 +136,11 @@
 
     <TextView
         android:id="@+id/releaseDateTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/anaheim"
         android:text="World premiere: "
         android:textColor="@color/white"
@@ -142,8 +153,10 @@
 
     <TextView
         android:id="@+id/plotTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/anaheim"
         android:text="Plot: "
         android:textColor="@color/white"

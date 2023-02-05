@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -58,5 +60,6 @@ public class MovieManagerActivity extends AppCompatActivity {
         } else {
             plotTextView.setText(plotTextView.getText() + "-");
         }
+        Picasso.get().load(movie.getPoster()).into(posterImageView);
     }
 }
