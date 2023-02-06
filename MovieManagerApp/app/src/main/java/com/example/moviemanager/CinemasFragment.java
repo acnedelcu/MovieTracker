@@ -42,7 +42,7 @@ public class CinemasFragment extends Fragment {
         TextView textView = view.findViewById(R.id.cinemaTextView);
         WebView webView = view.findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://www.cinemaone.ro/home#/");
+        webView.loadUrl("https://www.cinemacity.ro/#/");
 
         CinemaDataService cinemaDataService = new CinemaDataService(context);
         cinemaDataService.getAllCinemas(new CinemaDataService.CinemaListResponseListener() {
