@@ -26,6 +26,15 @@ public class MovieManagerActivity extends AppCompatActivity {
     Movie movie;
     ArrayList<Movie> watchedMovies = new ArrayList<>();
 
+    public static boolean containsMovie(ArrayList<Movie> movies, Movie movie) {
+        for (Movie m : movies) {
+            if (m.getId() == movie.getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +87,7 @@ public class MovieManagerActivity extends AppCompatActivity {
             @Override
             public void onResponse(List<Movie> movies) {
                 watchedMovies = new ArrayList<>(movies);
-                if (watchedMovies.contains(movie)) {
+                if (containsMovie(watchedMovies, movie)) {
                     addToWatchedListBtn.setText("Remove from watched");
                 } else {
                     addToWatchedListBtn.setText("Add to watched");
@@ -88,7 +97,7 @@ public class MovieManagerActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // Search if the movie is watched
-                        if (watchedMovies.contains(movie)) {
+                        if (containsMovie(watchedMovies, movie)) {
                             moviesDataService.removeMovieFromUserWatchlist(movie.getId(), 1, new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
@@ -96,7 +105,7 @@ public class MovieManagerActivity extends AppCompatActivity {
                                 }
                             });
                         } else {
-                            moviesDataService.addMovieToUserWatchList(3, 1, new Response.Listener<String>() {
+                            moviesDataService.addMovieToUserWatchList(movie.getId(), 1, new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
                                     addToWatchedListBtn.setText("Remove from watched");
@@ -109,3 +118,4 @@ public class MovieManagerActivity extends AppCompatActivity {
         });
     }
 }
+
